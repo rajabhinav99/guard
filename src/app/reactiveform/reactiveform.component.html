@@ -1,0 +1,59 @@
+<h1>Reactive form Demos</h1>
+
+<form [formGroup]= "form"
+(ngSubmit)="AddUser(form)">
+  <div class = "form-group">
+  
+    <label>
+    Name:
+</label>
+ <input type="text" name="" value="" class="form-control"  formControlName="name"/>
+ 
+ <div class="alert alert-danger" *ngIf= "form.get('name').touched && form.get('name').invalid">
+  
+  <div *ngIf = "form.get('name').hasError('required')">
+     Please Enter Name
+   </div>
+   
+   <div *ngIf="form.get('name').hasError('pattern')">
+     Please Enter Valid Name
+   </div>
+ </div>
+  
+ <label>
+   contact:
+ </label>
+ <input type="number" name="" formControlName="contact" value="" 
+ class="form-control" maxlength="10" minlength="10"  />
+
+ <div class="alert alert-danger" *ngIf= "form.get('contact').touched && form.get('contact').invalid">
+  
+    <div *ngIf = "form.get('contact').hasError('required')">
+       Please Enter Number
+     </div>
+     
+     <div *ngIf="form.get('contact').hasError('pattern')">
+       Please Enter Valid Number
+     </div>
+   </div>
+    
+ <label>
+   Email:
+ </label>
+ <input type ="text" name="" formControlName="email" value="" class="form-control"/>
+
+ <div class="alert alert-danger" *ngIf= "form.get('email').touched && form.get('email').invalid">
+  
+    <div *ngIf = "form.get('email').hasError('required')">
+       Please Enter Email
+     </div>
+     
+     <div *ngIf="form.get('email').hasError('pattern')">
+       Please Enter Valid Email
+     </div>
+   </div>
+    
+</div>
+<button type="submit"
+class="btn btn-success">Add User</button>
+</form>

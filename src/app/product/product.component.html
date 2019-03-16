@@ -1,0 +1,107 @@
+
+<div
+class="well">
+
+  <h1
+class="page-header">Prodcuts Details</h1>
+
+  <div
+class="well">
+
+    
+
+Product Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+
+<input
+type="text" #refproductid/><br>
+
+
+
+Product Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+<input
+type="text" #refproductname/><br>
+
+
+
+Product Cost &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+<input
+type="text" #refproductcost/><br>
+
+
+
+Product Category &nbsp;: <input
+type="text" #refproductcategory/><br>
+
+<br>
+
+<button
+class="btn btn-primary"
+
+(click)="addproductToService(refproductid.value,refproductname.value,
+
+refproductcost.value,refproductcategory.value)">Add Products</button>&nbsp;&nbsp;
+
+
+
+<button
+class="btn btn-danger"
+
+(click)="deleteFromService()">Delete Products</button>
+
+&nbsp; <button class ="btn btn-primary"(click)='clearTextboxes()'>clear</button>
+
+&nbsp;<button class ="btn btn-success"(click)='clearTextboxes()'>update</button>
+</div>
+
+
+
+<input
+type="text" #refproductid1/>
+
+<button
+class="btn btn-danger"
+
+(click)="deleteFromServices(refproductid1.value)">Delete Product</button>
+ 
+<h4 class="page-header">Display Product from services</h4>
+ 
+ <table class="table table-bordered table-striped">
+ 
+ <thead>
+ 
+ <tr>
+ 
+ <th>id</th>
+ 
+ <th>Name</th>
+ 
+ <th>Cost</th>
+ 
+ <th>Category</th>
+ 
+ </tr>
+ 
+ </thead>
+ 
+ 
+ 
+ <tbody>
+ 
+ <tr *ngFor="let pro of products">
+ 
+ <td>{{pro.id}}</td>
+ 
+ <td>{{pro.name}}</td>
+ 
+ <td>{{pro.cost}}</td>
+ 
+ <td>{{pro.category}}</td>
+ 
+ </tr>
+ 
+ </tbody>
+ 
+ </table>
+ 
+ 
+ 

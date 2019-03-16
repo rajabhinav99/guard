@@ -1,0 +1,58 @@
+<h1>Events</h1>
+
+<div class="well">
+  <h1 class="page-header">Event Handler</h1>
+<button class="btn btn-primary"(click)="ClickMe()">Click Me</button>
+<button class="btn btn-danger" (click)="Delete(100)">Delete</button>
+<button class="btn btn-success" (click)="Edit(100,'iphone')">Edit</button>
+
+</div>
+
+<!-- <div class="container">
+  <div class ="jumbotron">
+   <h1>Names Application</h1>
+   <br>
+   <br>
+   <div class="form-group">
+    <label for="Name">Enter Name</label> &nbsp;&nbsp;
+    <input type="textbox"> &nbsp;&nbsp;
+    <button class="btn btn-success">Add New Name</button>
+
+    
+   </div>
+  </div>
+</div>
+ -->
+
+ <div class="well">
+
+  <h1 class="page-header"> Names </h1>
+  
+  <div class="well">
+  
+  Enter Name : <input type="text" #refname />
+  
+  <button class="btn btn-primary"
+  
+  (click)="addNAmes(refname.value)">Add Names</button>
+  
+  </div>
+  
+  <ul class="list-group">
+  
+  <li class="list-group-item" 
+  
+  *ngFor="let name of names;let i=index">
+  
+  {{name}}
+  
+  <span class="badge"> {{i+1}}</span>
+  
+  <button (click)="deleteName(name)">X</button>
+  
+  </li>
+  
+  </ul>
+  
+  </div>
+  

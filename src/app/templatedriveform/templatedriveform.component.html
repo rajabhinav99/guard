@@ -1,0 +1,90 @@
+<div>touched : {{frm.touched}}</div>
+<div>untouched : {{frm.untouched}}</div>
+<div>pristine : {{frm.pristine}}</div>
+<div>dirty : {{frm.dirty}}</div>
+<div>valid : {{frm.valid}}</div>
+<div>invalid : {{frm.invalid}}</div>
+<div class="container">
+  <div class="jumbotron">
+    <form #frm="ngForm" (ngSubmit)="AddUser(frm)">
+
+      <div class="form-group">
+        <label>
+          Name:
+        </label>
+        <input type="text" required pattern="[a-zA-Z][a-zA-Z]+" class="form-control" name="name" #username="ngModel" ngModel/>
+
+        <!-- <div *ngIf="username?.touched &&
+        username?.invalid" class ="alert alert-danger">
+      
+        <div *ngIf = "username.errors?.required">Name is required</div>
+        <div *ngIf = "username.errors?.pattern">Only alphabets</div> -->
+
+        <div *ngIf="username?.touched &&  username?.invalid" class="alert alert-danger">
+
+          <div *ngIf="username.errors?.required">
+            Name is required</div>
+
+          <div *ngIf="username.errors?.pattern">Only alphabets </div>
+
+        </div>
+
+      <label>
+        contact:
+      </label>
+      <input type="text" class="form-control" 
+
+ngModel 
+
+required
+
+pattern="[0-9]*"
+
+#contact="ngModel"
+
+minlength="10"
+
+maxlength="10"
+
+name="contact" #contact="ngModel" ngModel />
+
+<div *ngIf="contact?.touched && contact?.invalid" class="alert alert-danger">
+
+<div *ngIf="contact.errors?.required">
+
+Please enter Contact Number
+
+</div>
+
+<div *ngIf="contact.errors?.pattern">Please enter Valid Number</div>
+</div>
+
+
+
+      <label>
+        Email:
+      </label>
+      <input required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="text"
+      #email="ngModel"
+      
+      ngModel class="form-control" name="email" />
+      
+      <div *ngIf="email?.touched && email?.invalid" class="alert alert-danger">
+      
+      <div *ngIf="email.errors?.required">
+       Please enter email
+       </div>
+      
+      <div *ngIf="email.errors?.pattern">
+      Please enter valid email
+       </div>
+      
+      </div>
+    <button type="submit" [disabled]="frm.invalid" class="btn
+      btn-success">Add New</button>
+      
+      </div>
+      
+  </form>
+</div>
+</div>

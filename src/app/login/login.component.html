@@ -1,0 +1,97 @@
+<!-- <div class="container">
+    <div class="jumbotron">
+        <h3>Login Page</h3> &nbsp;&nbsp;
+
+
+      <label>User Name</label>
+      <input type="text"class="form-control" name="name" #username="ngModel" ngModel/>
+       
+      <label>Password</label>
+      <input type="text"class="form-control" name="name" #username="ngModel" ngModel/>
+     
+         <hr>                
+      <button type="submit" [disabled]="frm.invalid" class="btn
+      btn-success">Login</button> &nbsp;&nbsp;
+                      
+      <button type="submit" [disabled]="frm.invalid" class="btn
+      btn-danger">Cancel</button>
+           </div>
+           </div>            -->
+   
+           <br /><br />
+
+           <div class="col-md-6 col-md-offset-2">
+           
+           <h3>Login</h3>
+           
+           <br />
+           
+           
+           
+           
+           <!-- Designing Login Form-->
+           
+           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+           
+           <div class="form-group">
+           
+           <label for="email">Email Address: </label>
+           
+           <input type="email" class="form-control" formControlName="email"
+           id="email" />
+           
+           
+           
+           
+           <div *ngIf="submitted && loginForm.controls.email.errors" class="error">
+           
+           <div class="text-danger" *ngIf="loginForm.controls.email.errors.required">
+           
+           Email is required ..
+           
+           </div>
+           
+           </div>
+           
+           <input type="password" class="form-control" formControlName="password"
+           id="pwd" />
+           
+           <div *ngIf="submitted && loginForm.controls.password.errors" class="error">
+           
+           <div class="text-danger" *ngIf="loginForm.controls.password.errors.required">
+           
+           Password is required ..
+           
+           </div>
+           
+           </div>
+           
+           </div>
+           
+           <button class="btn btn-success">Login</button> &nbsp;
+           
+           <button class="btn btn-danger" type="reset">Cancel</button>
+           
+           &nbsp;
+           
+           <a class="btn btn-warning" [routerLink]="['/']">
+           
+           Go to Home</a> <br /><br />
+           
+           <div *ngIf="invalidLogin" class="error">
+           
+           <div class="text-danger">
+           
+           Invalid credentials ..
+           
+           </div>
+           
+           </div>
+           
+           
+           
+           
+           </form>
+           
+           </div>
+               
